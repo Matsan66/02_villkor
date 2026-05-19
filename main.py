@@ -8,7 +8,8 @@ Programmmet frågar användaren efter priset på en vara. Om priset är över 10
 Om priset är över 300 kr får användaren ytterligare 25% i rabatt, totalt 35%.
 
 Programmet är rättat och "förbättrat" genom att en if/ else sats beräknar den totala rabatten direkt och
-notifierar användaren.
+notifierar användaren. Den avslutande printsatsen är rättad så att variabeln final_price omvandlas till en
+sträng för att konkateneras korrekt i strängen.
 """
 is_member = False
 discount_level1 = 100
@@ -39,14 +40,14 @@ print("Efter rabatter blir priset.... " + str(final_price) + " kronor.")
     testade värdet i if-satsen. Om något blir fel i en if-sats är det ofta < > och = i
     förhållande till gränsvärdet.
 3. Det finns ingen anledning att lägga till 129 centimeter då det redan finns ett test
-    test för mindra än 130 centimeter.
+    för mindra än 130 centimeter.
 """
 
 user_length = input("Hur lång är du i centimeter: ")
-user_length = int(user_length)
-limit_to_ride = 130
+user_length = int(user_length) # cast string to integer
+length_limit_to_ride = 130
 
-if user_length < limit_to_ride:
+if user_length < length_limit_to_ride:
     print(f"Du får inte åka")
 else:
     print(f"Du får åka")
@@ -186,6 +187,7 @@ elif user_number_2 == user_number_3 or user_number_2 == user_number_3:
     print(f"Två tal ({user_number_2}) är lika")
 
 """
+Testmatris
 __________________________________________________________
 - t1 | t2 | t3 | Störst | Två lika | Tre lika | Mellerst -
 ----------------------------------------------------------
