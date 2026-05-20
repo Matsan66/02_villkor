@@ -3,6 +3,9 @@
 ########################################
 # 1 Diskutera i grupp
 ########################################
+print("\n1 Diskutera i grupp")
+print("\n--------------------------------")
+
 """
 Programmmet frågar användaren efter priset på en vara. Om priset är över 100 kr får användaren 10% i rabatt.
 Om priset är över 300 kr får användaren ytterligare 25% i rabatt, totalt 35%.
@@ -34,6 +37,9 @@ print("Efter rabatter blir priset.... " + str(final_price) + " kronor.")
 ########################################
 # 2 Balder
 ########################################
+print("\n2 Balder")
+print("--------------------------------")
+
 """
 1. Tre värden medger test av en längd under tillåten, exakt värde och en som är längre. 
 2. Det är bra att testa gränsvärden. I detta fall är gränsen 130 cm och blir därför det 
@@ -48,143 +54,186 @@ user_length = int(user_length) # cast string to integer
 length_limit_to_ride = 130
 
 if user_length < length_limit_to_ride:
-    print(f"Du får inte åka")
+    print(f"Du får inte åka!")
 else:
-    print(f"Du får åka")
-
+    print(f"Du får åka!")
 
 ########################################
 # 3 Sportresultat
 ########################################
+print("\n3 Sportresultat")
+print("--------------------------------")
 
-program_version = int(input("\nVilken version av programmet vill du köra (1 - 3): "))
+while True:
+    print("\n__________Meny_____________")
+    print("1. Visa vilket lag som vann")
+    print("2. Visar även oavgjort")
+    print("3. Visar måldifferans i matchen")
+    print("4. Avsluta")
 
-print("\nMatchen är över, nu ska vi räkna ut resultatet!")
+    program_version = int(input("\nVilken version av programmet vill du köra (1 - 4): "))
 
-goals_tottenham = int(input("Hur många mål gjorde Tottenham? "))
-goals_Liverpool = int(input("Hur många mål gjorde Liverpool? "))
+    # avsluta programmet om val = 4
+    if program_version == 4:
+        print("Programmet avslutas...")
+        break
 
-# version 1
-if program_version == 1:
-    if goals_tottenham < goals_Liverpool:
-        print("Liverpool vann!")
+
+    print("\nMatchen är över, nu ska vi räkna ut resultatet!")
+
+    goals_tottenham = int(input("Hur många mål gjorde Tottenham? "))
+    goals_Liverpool = int(input("Hur många mål gjorde Liverpool? "))
+
+    # version 1
+    if program_version == 1:
+        if goals_tottenham < goals_Liverpool:
+            print("Liverpool vann!")
+        elif goals_tottenham > goals_Liverpool:
+            print("Tottenham vann!")
+
+    # version 2
+    elif program_version == 2:
+        if goals_tottenham < goals_Liverpool:
+            print("Liverpool vann!")
+        elif goals_tottenham > goals_Liverpool:
+            print("Tottenham vann!")
+        else:
+            print("Det blev oavgjort!")
+
+    # version 3
+    # Lämpliga test 2 - 1, 1 - 2 och 2 - 2
+    elif program_version == 3:
+        score_difference = 0
+        if goals_tottenham < goals_Liverpool:
+            score_difference = goals_Liverpool - goals_tottenham
+            print(f"Liverpool vann med {score_difference} mål!")
+        elif goals_tottenham > goals_Liverpool:
+            score_difference = goals_tottenham - goals_Liverpool
+            print(f"Tottenham vann med {score_difference} mål!")
+        else:
+            print(f"Det blev oavgjort, {goals_tottenham} - {goals_Liverpool}!")
+
     else:
-        print("Tottenham vann!")
-
-# version 2
-elif program_version == 2:
-    if goals_tottenham < goals_Liverpool:
-        print("Liverpool vann!")
-    elif goals_tottenham > goals_Liverpool:
-        print("Tottenham vann!")
-    else:
-        print("Det blev oavgjort!")
-
-# version 3
-# Lämpliga test 2 - 1, 1 - 2 och 2 - 2
-elif program_version == 3:
-    score_difference = 0
-    if goals_tottenham < goals_Liverpool:
-        score_difference = goals_Liverpool - goals_tottenham
-        print(f"Liverpool vann med {score_difference} mål!")
-    elif goals_tottenham > goals_Liverpool:
-        score_difference = goals_tottenham - goals_Liverpool
-        print(f"Tottenham vann med {score_difference} mål!")
-    else:
-        print(f"Det blev oavgjort, {goals_tottenham} - {goals_Liverpool}!")
+        print("Ej giltigt val, försök igen.")
 
 
 ########################################
 # 4 Temperaturomvandling
 ########################################
+print("\n4 Temperaturomvandling")
+print("--------------------------------")
 
-program_version = int(input("\nVilken version av programmet vill du köra (1 - 3): "))
+while True:
+    print("\n__________Meny_____________")
+    print("1. Omvandling Celcius till Farenheit")
+    print("2. Valbar omvandling Celcius <-> Farenheit")
+    print("3. Valbar omvandling Celcius <-> Farenheit med väderrekommendation")
+    print("4. Avsluta")
 
-# version 1
-if program_version == 1:
-    temperature_celcius = input("Skriv in en temperatur i grader Celcius: ")
-    temperature_farenheit = round((1.8 * float(temperature_celcius) +32), 2)
-    print(f"Det blir {temperature_farenheit} grader Farenheit.")
+    program_version = int(input("Vilken version av programmet vill du köra (1 - 3): "))
 
-# version 2
-if program_version == 2:
-    conversion_type = input("Vill du omvandla från Celcius (C) eller Farenheit (F): ")
+    # avsluta programmet om val = 4
+    if program_version == 4:
+        print("Programmet avslutas...")
+        break
 
-    if conversion_type.lower() == "c":
+    # version 1
+    if program_version == 1:
         temperature_celcius = input("Skriv in en temperatur i grader Celcius: ")
-        temperature_farenheit = round((1.8 * float(temperature_celcius) + 32), 2)
+        temperature_farenheit = round((1.8 * float(temperature_celcius) +32), 2)
         print(f"Det blir {temperature_farenheit} grader Farenheit.")
-    elif conversion_type.lower() == "f":
-        temperature_farenheit = input("Skriv in en temperatur i grader Farenheit: ")
-        temperature_celcius = round((float(temperature_farenheit) - 32) / 1.8, 2)
-        print(f"Det blir {temperature_celcius} grader Celcius.")
 
-# version 3
-if program_version == 3:
-    conversion_type = input("Vill du omvandla från Celcius (C) eller Farenheit (F): ")
+    # version 2
+    elif program_version == 2:
+        conversion_type = input("Vill du omvandla från Celcius (C) eller Farenheit (F): ")
 
-    if conversion_type.lower() == "c":
-        temperature_celcius = input("Skriv in en temperatur i grader Celcius: ")
-        temperature_farenheit = round((1.8 * float(temperature_celcius) + 32), 2)
-        print(f"Det blir {temperature_farenheit} grader Farenheit.")
-        if float(temperature_celcius) < 10:
-            print(f"Det är bäst att ta på vinterkläder.")
-        elif float(temperature_celcius) > 20:
-            print(f"Det är bäst att packa badkläder.")
+        if conversion_type.lower() == "c":
+            temperature_celcius = input("Skriv in en temperatur i grader Celcius: ")
+            temperature_farenheit = round((1.8 * float(temperature_celcius) + 32), 2)
+            print(f"Det blir {temperature_farenheit} grader Farenheit.")
+        elif conversion_type.lower() == "f":
+            temperature_farenheit = input("Skriv in en temperatur i grader Farenheit: ")
+            temperature_celcius = round((float(temperature_farenheit) - 32) / 1.8, 2)
+            print(f"Det blir {temperature_celcius} grader Celcius.")
 
-    elif conversion_type.lower() == "f":
-        temperature_farenheit = input("Skriv in en temperatur i grader Farenheit: ")
-        temperature_celcius = round((float(temperature_farenheit) - 32) / 1.8, 2)
-        print(f"Det blir {temperature_celcius} grader Celcius.")
-        if float(temperature_celcius) < 10:
-            print(f"Det är bäst att ta på vinterkläder.")
-        elif float(temperature_celcius) > 20:
-            print(f"Det är bäst att packa badkläder.")
+    # version 3
+    elif program_version == 3:
+        conversion_type = input("Vill du omvandla från Celcius (C) eller Farenheit (F): ")
+
+        if conversion_type.lower() == "c":
+            temperature_celcius = input("Skriv in en temperatur i grader Celcius: ")
+            temperature_farenheit = round((1.8 * float(temperature_celcius) + 32), 2)
+            print(f"Det blir {temperature_farenheit} grader Farenheit.")
+            if float(temperature_celcius) < 10:
+                print(f"Det är bäst att ta på vinterkläder.")
+            elif float(temperature_celcius) > 20:
+                print(f"Det är bäst att packa badkläder.")
+
+        elif conversion_type.lower() == "f":
+            temperature_farenheit = input("Skriv in en temperatur i grader Farenheit: ")
+            temperature_celcius = round((float(temperature_farenheit) - 32) / 1.8, 2)
+            print(f"Det blir {temperature_celcius} grader Celcius.")
+            if float(temperature_celcius) < 10:
+                print(f"Det är bäst att ta på vinterkläder.")
+            elif float(temperature_celcius) > 20:
+                print(f"Det är bäst att packa badkläder.")
+
+        else:
+            print("Ej giltigt val, försök igen.")
 
 
 ########################################
 # 5 Miniräknare
 ########################################
+print("\n5 Miniräknare")
+print("-------------------------------")
 
-user_number_1 = int(input("Ange tal 1: "))
-user_number_2 = int(input("Ange tal 2: "))
-user_number_3 = int(input("Ange tal 3: "))
+while True:
+    user_number_1 = int(input("Ange tal 1: "))
+    user_number_2 = int(input("Ange tal 2: "))
+    user_number_3 = int(input("Ange tal 3: "))
 
-print(f"\nSumman av de tre talen = {user_number_1 + user_number_2 + user_number_3}")
+    print(f"Summan av de tre talen = {user_number_1 + user_number_2 + user_number_3}")
 
-# Highest number
-if user_number_1 >= user_number_2 and user_number_1 >= user_number_3:
-    highest_number = user_number_1
-elif user_number_2 >= user_number_1 and user_number_2 >= user_number_3:
-    highest_number = user_number_2
-else:
-    highest_number = user_number_3
+    # Highest number
+    if user_number_1 >= user_number_2 and user_number_1 >= user_number_3:
+        highest_number = user_number_1
+    elif user_number_2 >= user_number_1 and user_number_2 >= user_number_3:
+        highest_number = user_number_2
+    else:
+        highest_number = user_number_3
 
-print(f"Det högsta talet är {highest_number}")
+    print(f"Det högsta talet är {highest_number}")
 
-# Lowest number
-if user_number_1 <= user_number_2 and user_number_1 <= user_number_3:
-    lowest_number = user_number_1
-elif user_number_2 <= user_number_1 and user_number_2 <= user_number_3:
-    lowest_number = user_number_2
-else:
-    lowest_number = user_number_3
+    # Lowest number
+    if user_number_1 <= user_number_2 and user_number_1 <= user_number_3:
+        lowest_number = user_number_1
+    elif user_number_2 <= user_number_1 and user_number_2 <= user_number_3:
+        lowest_number = user_number_2
+    else:
+        lowest_number = user_number_3
 
-# Middle number
-if (user_number_1 == user_number_2 == user_number_3 or
-        user_number_1 != user_number_2  and
-        user_number_1 != user_number_3 and
-        user_number_2 != user_number_3):
-    middle_number = user_number_1 + user_number_2 + user_number_3 - highest_number - lowest_number
-    print(f"Talet i mitten är {middle_number }")
+    # Middle number
+    if (user_number_1 == user_number_2 == user_number_3 or
+            user_number_1 != user_number_2  and
+            user_number_1 != user_number_3 and
+            user_number_2 != user_number_3):
+        middle_number = user_number_1 + user_number_2 + user_number_3 - highest_number - lowest_number
+        print(f"Talet i mitten är {middle_number }")
 
-# Two or three even
-if user_number_1 == user_number_2 == user_number_3:
-    print(f"Samtliga tre tal ({user_number_1}) är lika")
-elif user_number_1 == user_number_2 or user_number_1 == user_number_3:
-    print(f"Två tal ({user_number_1}) är lika")
-elif user_number_2 == user_number_3 or user_number_2 == user_number_3:
-    print(f"Två tal ({user_number_2}) är lika")
+    # Two or three even
+    if user_number_1 == user_number_2 == user_number_3:
+        print(f"Samtliga tre tal ({user_number_1}) är lika")
+    elif user_number_1 == user_number_2 or user_number_1 == user_number_3:
+        print(f"Två tal ({user_number_1}) är lika")
+    elif user_number_2 == user_number_3 or user_number_2 == user_number_3:
+        print(f"Två tal ({user_number_2}) är lika")
+
+    repetera_programmet = input("\nVill du prova en gång till? (j/n): ")
+
+    if repetera_programmet.lower() != "j":
+        print("Programmet avslutas...")
+        break
 
 """
 Testmatris
