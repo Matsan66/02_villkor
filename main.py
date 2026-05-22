@@ -54,9 +54,9 @@ user_length = int(user_length) # cast string to integer
 length_limit_to_ride = 130
 
 if user_length < length_limit_to_ride:
-    print(f"Du får inte åka!")
+    print("Du får inte åka!")
 else:
-    print(f"Du får åka!")
+    print("Du får åka!")
 
 ########################################
 # 3 Sportresultat
@@ -82,20 +82,20 @@ while True:
     print("\nMatchen är över, nu ska vi räkna ut resultatet!")
 
     goals_tottenham = int(input("Hur många mål gjorde Tottenham? "))
-    goals_Liverpool = int(input("Hur många mål gjorde Liverpool? "))
+    goals_liverpool = int(input("Hur många mål gjorde Liverpool? "))
 
     # version 1
     if program_version == 1:
-        if goals_tottenham < goals_Liverpool:
+        if goals_tottenham < goals_liverpool:
             print("Liverpool vann!")
-        elif goals_tottenham > goals_Liverpool:
+        elif goals_tottenham > goals_liverpool:
             print("Tottenham vann!")
 
     # version 2
     elif program_version == 2:
-        if goals_tottenham < goals_Liverpool:
+        if goals_tottenham < goals_liverpool:
             print("Liverpool vann!")
-        elif goals_tottenham > goals_Liverpool:
+        elif goals_tottenham > goals_liverpool:
             print("Tottenham vann!")
         else:
             print("Det blev oavgjort!")
@@ -104,14 +104,14 @@ while True:
     # Lämpliga test 2 - 1, 1 - 2 och 2 - 2
     elif program_version == 3:
         score_difference = 0
-        if goals_tottenham < goals_Liverpool:
-            score_difference = goals_Liverpool - goals_tottenham
+        if goals_tottenham < goals_liverpool:
+            score_difference = goals_liverpool - goals_tottenham
             print(f"Liverpool vann med {score_difference} mål!")
-        elif goals_tottenham > goals_Liverpool:
-            score_difference = goals_tottenham - goals_Liverpool
+        elif goals_tottenham > goals_liverpool:
+            score_difference = goals_tottenham - goals_liverpool
             print(f"Tottenham vann med {score_difference} mål!")
         else:
-            print(f"Det blev oavgjort, {goals_tottenham} - {goals_Liverpool}!")
+            print(f"Det blev oavgjort, {goals_tottenham} - {goals_liverpool}!")
 
     else:
         print("Ej giltigt val, försök igen.")
@@ -125,9 +125,9 @@ print("--------------------------------")
 
 while True:
     print("\n__________Meny_____________")
-    print("1. Omvandling Celcius till Farenheit")
-    print("2. Valbar omvandling Celcius <-> Farenheit")
-    print("3. Valbar omvandling Celcius <-> Farenheit med väderrekommendation")
+    print("1. Omvandling Celsius till Fahrenheit")
+    print("2. Valbar omvandling Celsius  <-> Fahrenheit")
+    print("3. Valbar omvandling Celsius <-> Fahrenheit med väderrekommendation")
     print("4. Avsluta")
 
     program_version = int(input("Vilken version av programmet vill du köra (1 - 3): "))
@@ -139,43 +139,43 @@ while True:
 
     # version 1
     if program_version == 1:
-        temperature_celcius = input("Skriv in en temperatur i grader Celcius: ")
-        temperature_farenheit = round((1.8 * float(temperature_celcius) +32), 2)
-        print(f"Det blir {temperature_farenheit} grader Farenheit.")
+        temperature_celsius = input("Skriv in en temperatur i grader Celsius: ")
+        temperature_fahrenheit = round((1.8 * float(temperature_celsius) + 32), 2)
+        print(f"Det blir {temperature_fahrenheit} grader Fahrenheit.")
 
     # version 2
     elif program_version == 2:
-        conversion_type = input("Vill du omvandla från Celcius (C) eller Farenheit (F): ")
+        conversion_type = input("Vill du omvandla från Celsius (C) eller Fahrenheit (F): ")
 
         if conversion_type.lower() == "c":
-            temperature_celcius = input("Skriv in en temperatur i grader Celcius: ")
-            temperature_farenheit = round((1.8 * float(temperature_celcius) + 32), 2)
-            print(f"Det blir {temperature_farenheit} grader Farenheit.")
+            temperature_celsius = input("Skriv in en temperatur i grader Celsius: ")
+            temperature_fahrenheit = round((1.8 * float(temperature_celsius) + 32), 2)
+            print(f"Det blir {temperature_fahrenheit} grader Farenheit.")
         elif conversion_type.lower() == "f":
-            temperature_farenheit = input("Skriv in en temperatur i grader Farenheit: ")
-            temperature_celcius = round((float(temperature_farenheit) - 32) / 1.8, 2)
-            print(f"Det blir {temperature_celcius} grader Celcius.")
+            temperature_fahrenheit = input("Skriv in en temperatur i grader Fahrenheit: ")
+            temperature_celsius = round((float(temperature_fahrenheit) - 32) / 1.8, 2)
+            print(f"Det blir {temperature_celsius} grader Celsius.")
 
     # version 3
     elif program_version == 3:
-        conversion_type = input("Vill du omvandla från Celcius (C) eller Farenheit (F): ")
+        conversion_type = input("Vill du omvandla från Celsius (C) eller Fahrenheit (F): ")
 
         if conversion_type.lower() == "c":
-            temperature_celcius = input("Skriv in en temperatur i grader Celcius: ")
-            temperature_farenheit = round((1.8 * float(temperature_celcius) + 32), 2)
-            print(f"Det blir {temperature_farenheit} grader Farenheit.")
-            if float(temperature_celcius) < 10:
+            temperature_celsius = input("Skriv in en temperatur i grader Celsius: ")
+            temperature_fahrenheit = round((1.8 * float(temperature_celsius) + 32), 2)
+            print(f"Det blir {temperature_fahrenheit} grader Fahrenheit.")
+            if float(temperature_celsius) < 10:
                 print(f"Det är bäst att ta på vinterkläder.")
-            elif float(temperature_celcius) > 20:
+            elif float(temperature_celsius) > 20:
                 print(f"Det är bäst att packa badkläder.")
 
         elif conversion_type.lower() == "f":
-            temperature_farenheit = input("Skriv in en temperatur i grader Farenheit: ")
-            temperature_celcius = round((float(temperature_farenheit) - 32) / 1.8, 2)
-            print(f"Det blir {temperature_celcius} grader Celcius.")
-            if float(temperature_celcius) < 10:
+            temperature_fahrenheit = input("Skriv in en temperatur i grader Fahrenheit: ")
+            temperature_celsius = round((float(temperature_fahrenheit) - 32) / 1.8, 2)
+            print(f"Det blir {temperature_celsius} grader Celsius.")
+            if float(temperature_celsius) < 10:
                 print(f"Det är bäst att ta på vinterkläder.")
-            elif float(temperature_celcius) > 20:
+            elif float(temperature_celsius) > 20:
                 print(f"Det är bäst att packa badkläder.")
 
         else:
@@ -195,7 +195,7 @@ while True:
 
     print(f"Summan av de tre talen = {user_number_1 + user_number_2 + user_number_3}")
 
-    # Highest number
+    # Find highest number
     if user_number_1 >= user_number_2 and user_number_1 >= user_number_3:
         highest_number = user_number_1
     elif user_number_2 >= user_number_1 and user_number_2 >= user_number_3:
@@ -205,7 +205,7 @@ while True:
 
     print(f"Det högsta talet är {highest_number}")
 
-    # Lowest number
+    # Find lowest number
     if user_number_1 <= user_number_2 and user_number_1 <= user_number_3:
         lowest_number = user_number_1
     elif user_number_2 <= user_number_1 and user_number_2 <= user_number_3:
@@ -213,7 +213,7 @@ while True:
     else:
         lowest_number = user_number_3
 
-    # Middle number
+    # Find middle number
     if (user_number_1 == user_number_2 == user_number_3 or
             user_number_1 != user_number_2  and
             user_number_1 != user_number_3 and
